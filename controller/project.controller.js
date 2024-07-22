@@ -24,7 +24,7 @@ export const createProject = async (req,res)=>{
     const newProject = new project({title, description, techStack, features, date, github, demo, image});
     try{
         await newProject.save();
-        res.status(201).json(newProject);
+        res.status(201).json({message: 'Project created successfully'});
     }catch(error){
         res.status(409).json({message: error.message});
     }

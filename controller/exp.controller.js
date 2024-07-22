@@ -14,7 +14,7 @@ export const createExp = async (req,res)=>{
     const newExp = new Exp({title, company, location, startDate, endDate, description});
     try{
         await newExp.save();
-        res.status(201).json(newExp);
+        res.status(201).json({newExp,message:"Experience added successfully"});
     }catch(error){
         res.status(409).json({message: error.message});
     }
